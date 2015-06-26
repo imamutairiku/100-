@@ -33,7 +33,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         
         // ViewにButtonを追加する.
         view.addSubview(myNotificationFireButton)
-        
+    }
+    
         /*
         ボタンイベント
         */
@@ -41,8 +42,9 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
             println("onClickMyButton")
             if sender.tag == 2 {
             showNotificationFire()
+            }
         }
-    }
+            
     
         /*
         Show Notification(10 sec後に発火)
@@ -92,7 +94,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     myButton.layer.masksToBounds = true
     myButton.layer.cornerRadius = 50.0
     self.view.addSubview(myButton)
-}
+    
+
 
     let now = NSDate() // 現在日時の取得
     let dateFormatter = NSDateFormatter()
@@ -104,8 +107,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     // -> "2014/11/02 10:32:22"
     
     
-    override
-    func viewWillAppear(animated: Bool) {
+    overrid func viewWillAppear(animated: Bool) {
         //現在の時刻を取得する
         var now = NSDate()
         //時分秒のフォーマッターを作る
@@ -133,5 +135,4 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
           audioPlayer.play()
 }
 }
-
 
