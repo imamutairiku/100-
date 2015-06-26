@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0889C21B3D285600BEEF68 /* clap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E0889C11B3D285600BEEF68 /* clap.wav */; };
 		8E8186381B3679AA0059A009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8186371B3679AA0059A009 /* AppDelegate.swift */; };
 		8E81863A1B3679AA0059A009 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8186391B3679AA0059A009 /* ViewController.swift */; };
 		8E81863D1B3679AA0059A009 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E81863B1B3679AA0059A009 /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		8E8186421B3679AA0059A009 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8186401B3679AA0059A009 /* LaunchScreen.xib */; };
 		8E81864E1B3679AA0059A009 /* _00_______Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E81864D1B3679AA0059A009 /* _00_______Tests.swift */; };
 		8E8186581B369FBC0059A009 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8186571B369FBC0059A009 /* AVFoundation.framework */; };
-		8E81865A1B36A0980059A009 /* clap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E8186591B36A0980059A009 /* clap.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E0889C11B3D285600BEEF68 /* clap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clap.wav; sourceTree = "<group>"; };
 		8E8186321B3679AA0059A009 /* 100回めざまし！.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "100回めざまし！.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8186361B3679AA0059A009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E8186371B3679AA0059A009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		8E81864C1B3679AA0059A009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E81864D1B3679AA0059A009 /* _00_______Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_00_______Tests.swift"; sourceTree = "<group>"; };
 		8E8186571B369FBC0059A009 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		8E8186591B36A0980059A009 /* clap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clap.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 				8E81863B1B3679AA0059A009 /* Main.storyboard */,
 				8E81863E1B3679AA0059A009 /* Images.xcassets */,
 				8E8186401B3679AA0059A009 /* LaunchScreen.xib */,
-				8E8186591B36A0980059A009 /* clap.wav */,
+				8E0889C11B3D285600BEEF68 /* clap.wav */,
 				8E8186351B3679AA0059A009 /* Supporting Files */,
 			);
 			path = "100回めざまし！";
@@ -199,7 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E81865A1B36A0980059A009 /* clap.wav in Resources */,
+				8E0889C21B3D285600BEEF68 /* clap.wav in Resources */,
 				8E81863D1B3679AA0059A009 /* Main.storyboard in Resources */,
 				8E8186421B3679AA0059A009 /* LaunchScreen.xib in Resources */,
 				8E81863F1B3679AA0059A009 /* Images.xcassets in Resources */,
@@ -417,6 +417,7 @@
 				8E8186531B3679AA0059A009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E8186541B3679AA0059A009 /* Build configuration list for PBXNativeTarget "100回めざまし！Tests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +426,7 @@
 				8E8186561B3679AA0059A009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

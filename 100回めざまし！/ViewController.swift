@@ -4,8 +4,10 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,AVAudioPlayerDelegate {
+    var audioPlayer : AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,8 @@ class ViewController: UIViewController {
             myNotification.alertBody = "TEST(Fire)"
             
             // 再生サウンドを設定する.
-            myNotification.soundName = UILocalNotificationDefaultSoundName
+            myNotification.soundName
+            = UILocalNotificationDefaultSoundName
             
             // Timezoneを設定する.
             myNotification.timeZone = NSTimeZone.defaultTimeZone()
@@ -66,18 +69,53 @@ class ViewController: UIViewController {
             UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
         }
     
+
+        //再生する音源のURLを生成.!
+        let soundFilePath : NSString =
+    NSBundle.mainBundle().pathForResource("clap", ofType: "wav")!
+        let fileURL : NSURL = NSURL(fileURLWithPath:soundFilePath)!
+    
+        //AVAudioPlayerのインスタンス化!
+        audioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+    
+    let now = NSDate() // 現在日時の取得
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
+    
+    dateFormatter.timeStyle = .MediumStyle
+    dateFormatter.dateStyle = .MediumStyle
+    println(dateFormatter.stringFromDate(now))
+    // -> "2014/11/02 10:32:22"
+    
+    
+    override
+    func viewWillAppear(animated: Bool) {
+        //現在の時刻を取得する
+        var now = NSDate()
+        //時分秒のフォーマッターを作る
+        var df = NSDateFormatter()
+        //時刻をフォーマッターの書式で文字に変換
+        df.dateFormat = "HH:MM:SS"
+        var datestr = df.stringFromDate(now)
+        //出力する
+        println(datestr)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     
 }
      func changeDatePicker(sender: UIDatePicker) {
         let df = NSDateFormatter()
-        df.dateFormat = "HH:mm:ss"
+        df.dateFormat = "hh:mm:ss"
         var dateStr = df.stringFromDate(sender.date)
         println(dateStr)
     
     }
 
+      if ("HH:MM:SS" == "hh:mm:ss"){
+          audioPlayer.play()
+}
 
