@@ -8,6 +8,7 @@ import AVFoundation
 
 class ViewController: UIViewController,AVAudioPlayerDelegate {
     var audioPlayer : AVAudioPlayer!
+    var myButton : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,13 +72,28 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     
 
         //再生する音源のURLを生成.!
-        let soundFilePath : NSString =
-    NSBundle.mainBundle().pathForResource("clap", ofType: "wav")!
-        let fileURL : NSURL = NSURL(fileURLWithPath:soundFilePath)!
+        let soundFilePath : NSString = NSBundle.mainBundle().pathForResource("clap", ofType: "wav")!
+        let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
     
         //AVAudioPlayerのインスタンス化!
         audioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
     
+        //AVAudioPlayerのデリゲートをセット.
+        myAudioPlayer.delegate = self
+    
+    //ボタンの生成.
+    myButton = UIButton()
+    myButton.frame.size = CGSizeMake(100, 100)
+    myButton.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
+    myButton.setTitle("▶︎", forState: UIControlState.Normal)
+    myButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+    myButton.backgroundColor = UIColor.cyanColor()
+    myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: UIControlEvents.TouchUpInside)
+    myButton.layer.masksToBounds = true
+    myButton.layer.cornerRadius = 50.0
+    self.view.addSubview(myButton)
+}
+
     let now = NSDate() // 現在日時の取得
     let dateFormatter = NSDateFormatter()
     dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
@@ -115,7 +131,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     
     }
 
-      if ("HH:MM:SS" == "hh:mm:ss"){
+      if dateFormat.isTheSame == true {
           audioPlayer.play()
 }
 
