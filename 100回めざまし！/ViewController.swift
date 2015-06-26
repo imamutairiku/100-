@@ -33,7 +33,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         
         // ViewにButtonを追加する.
         view.addSubview(myNotificationFireButton)
-    }
+        
         /*
         ボタンイベント
         */
@@ -121,8 +121,6 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         super.didReceiveMemoryWarning()
     }
 
-    
-}
      func changeDatePicker(sender: UIDatePicker) {
         let df = NSDateFormatter()
         df.dateFormat = "hh:mm:ss"
@@ -134,4 +132,6 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
       if dateFormat.isTheSame == true {
           audioPlayer.play()
 }
+}
+
 
