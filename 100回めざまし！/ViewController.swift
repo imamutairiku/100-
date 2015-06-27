@@ -9,8 +9,10 @@ import AVFoundation
 class ViewController: UIViewController,AVAudioPlayerDelegate {
     var audioPlayer : AVAudioPlayer!
     var myButton :UIButton!
-    var curretTIme :NSDateFormatter!
-    var alarmTime :NSDateFormatter!
+    var currentTime :String!
+    var alarmTime :String!
+    var number:Int = 0
+    @IBOutlet var label:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +25,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         )
         
         
-        // 時間をおいてNotificationを発火するボタンを作成する.
-        let myNotificationFireButton: UIButton = UIButton(frame: CGRectMake(0,0,200,80))
-        myNotificationFireButton.backgroundColor = UIColor.blueColor()
-        myNotificationFireButton.layer.masksToBounds = true
-        myNotificationFireButton.setTitle("Notification(Fire)", forState: .Normal)
-        myNotificationFireButton.layer.cornerRadius = 20.0
-        myNotificationFireButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:400)
-        myNotificationFireButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
-        myNotificationFireButton.tag = 2
+        //アラーム開始ボタン
         
-        // ViewにButtonを追加する.
-        view.addSubview(myNotificationFireButton)
         
         //再生する音源のURLを生成.!
         let soundFilePath : NSString = NSBundle.mainBundle().pathForResource("clap", ofType: "wav")!
@@ -45,68 +37,32 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         
         //AVAudioPlayerのデリゲートをセット.
         audioPlayer.delegate = self
-        
-        //ボタンの生成.
-        myButton = UIButton()
-        myButton.frame.size = CGSizeMake(100, 100)
-        myButton.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
-        myButton.setTitle("▶︎", forState: UIControlState.Normal)
-        myButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        myButton.backgroundColor = UIColor.cyanColor()
-        myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: UIControlEvents.TouchUpInside)
-        myButton.layer.masksToBounds = true
-        myButton.layer.cornerRadius = 50.0
-        self.view.addSubview(myButton)
+    
         
         
         //現在時刻
-        let now = NSDate()
+        //let now = NSDate()
         
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        //let formatter = NSDateFormatter()
+        //formatter.dateFormat = "HH:mm"
         
-        let string = formatter.stringFromDate(now)
+        //let string = formatter.stringFromDate(now)
         
-        println(string)
+        //println(string)
         
-    }
-    
-    //ボタンイベント
-    internal func onClickMyButton(sender: UIButton){
-        
-        println("onClickMyButton")
-        
-        if sender.tag == 2 {
-            showNotificationFire()
         }
-        
+    
+    //カウント機能
+    @IBAction func plus(){
+        number = number + 1
+        label.text = String(number)
     }
     
-    
-    //Show Notification(10 sec後に発火)
-    
-    private func showNotificationFire(){
-        println("showNotificationFire")
-        
-        // Notificationの生成する.
-        let myNotification: UILocalNotification = UILocalNotification()
-        
-        // メッセージを代入する.
-        myNotification.alertBody = "TEST(Fire)"
-        
-        // 再生サウンドを設定する.
-        myNotification.soundName
-            = UILocalNotificationDefaultSoundName
-        
-        // Timezoneを設定する.
-        myNotification.timeZone = NSTimeZone.defaultTimeZone()
-        
-        // 10秒後に設定する.
-        myNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
-        
-        // Notificationを表示する.
-        UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
+    //カウントを０に戻す
+    @IBAction func clear(){
+        number = 0
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         //現在の時刻を取得する
@@ -114,8 +70,9 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         //時分秒のフォーマッターを作る
         var df = NSDateFormatter()
         //時刻をフォーマッターの書式で文字に変換
-        df.dateFormat = "HH:MM:SS"
+        df.dateFormat = "HH:mm"
         var datestr = df.stringFromDate(now)
+        
         //出力する
         println(datestr)
         
@@ -125,32 +82,38 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     //アラーム時間の設定
     func changeDatePicker(sender: UIDatePicker) {
         let df = NSDateFormatter()
-        df.dateFormat = "hh:mm:ss"
+        df.dateFormat = "HH:mm"
         var dateStr = df.stringFromDate(sender.date)
-        println(dateStr)
+
+        
         alarmTime = dateStr
+        
+        println(dateStr)
+    
+        //アラーム開始ボタン押すと下記機能 &
+        
+        
+        //現在時刻とアラーム時間が一致したときにClap音鳴る
+        if currentTime == alarmTime {
+            audioPlayer.play()
+            audioPlayer.numberOfLoops = 7
+
+        }
+        
+        //label数が100になるとClap音止まる
+        if label.text == String(3){
+            audioPlayer.stop()
+            audioPlayer.currentTime = 0
+        }
     }
     
-    
-    //現在時刻とアラーム時間が一致したときにClap音鳴る
-    if currentTime = alarmTime {
-    audioPlayer.play()
-    }
-    
-    
+        //アラーム停止ボタン
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    
-    
-    //メソッド(func)の中に入るはず
-    //    if dateFormat.isTheSame == true {
-    //          audioPlayer.play()
-    //    }
-    
 }
 
 
