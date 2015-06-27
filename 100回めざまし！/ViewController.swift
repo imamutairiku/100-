@@ -8,7 +8,9 @@ import AVFoundation
 
 class ViewController: UIViewController,AVAudioPlayerDelegate {
     var audioPlayer : AVAudioPlayer!
-    var myButton : UIButton!
+    var myButton :UIButton!
+    var curretTIme :NSDateFormatter!
+    var alarmTime :NSDateFormatter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,16 +59,15 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         self.view.addSubview(myButton)
         
         
-        let now = NSDate() // 現在日時の取得
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
+        //現在時刻
+        let now = NSDate()
         
-        dateFormatter.timeStyle = .MediumStyle
-        dateFormatter.dateStyle = .MediumStyle
-        println(dateFormatter.stringFromDate(now))
-        // -> "2014/11/02 10:32:22"
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         
+        let string = formatter.stringFromDate(now)
         
+        println(string)
         
     }
     
@@ -117,20 +118,33 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         var datestr = df.stringFromDate(now)
         //出力する
         println(datestr)
+        
+        currentTime = datestr
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
+    //アラーム時間の設定
     func changeDatePicker(sender: UIDatePicker) {
         let df = NSDateFormatter()
         df.dateFormat = "hh:mm:ss"
         var dateStr = df.stringFromDate(sender.date)
         println(dateStr)
-        
+        alarmTime = dateStr
     }
+    
+    
+    //現在時刻とアラーム時間が一致したときにClap音鳴る
+    if currentTime = alarmTime {
+    audioPlayer.play()
+    }
+    
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    
     
     //メソッド(func)の中に入るはず
     //    if dateFormat.isTheSame == true {
