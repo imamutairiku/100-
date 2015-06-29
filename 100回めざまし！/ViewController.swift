@@ -13,6 +13,9 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     var alarmTime :String!
     var number:Int = 0
     @IBOutlet var label:UILabel!
+    var now2 :NSDate!
+    var alarmTime :NSDate!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     //カウントを０に戻す
     @IBAction func clear(){
         number = 0
+        label.text = String(number)
     }
     
     
@@ -74,6 +78,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         var datestr = df.stringFromDate(now)
         
         //出力する
+        now2 = now
         println(datestr)
         
         currentTime = datestr
@@ -84,30 +89,31 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         let df = NSDateFormatter()
         df.dateFormat = "HH:mm"
         var dateStr = df.stringFromDate(sender.date)
-
         
         alarmTime = dateStr
         
         println(dateStr)
     
-        //アラーム開始ボタン押すと下記機能 &
+    }
+    
+    
+    //（アラーム時間 - 現在時刻)経つとClap音鳴る
+    @IBAction func start (){
+    audioPlayer.play(timeIntervalSinceNow: time)()
+        audioPlayer.numberOfLoops = 4
+        
+        // アラーム時刻 - 現在時刻
+        var time = Float(now2.timeIntervalSinceDate(alarmTime))
         
         
-        //現在時刻とアラーム時間が一致したときにClap音鳴る
-        if currentTime == alarmTime {
-            audioPlayer.play()
-            audioPlayer.numberOfLoops = 7
-
-        }
-        
-        //label数が100になるとClap音止まる
+    //label数が100になるとClap音止まる(アラーム停止）
         if label.text == String(3){
+            
             audioPlayer.stop()
             audioPlayer.currentTime = 0
         }
     }
     
-        //アラーム停止ボタン
     
     
     override func didReceiveMemoryWarning() {

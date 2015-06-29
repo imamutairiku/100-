@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hhE-YH-vFa">
-                                <rect key="frame" x="77" y="227" width="221" height="103"/>
+                                <rect key="frame" x="77" y="239" width="221" height="103"/>
                                 <date key="date" timeIntervalSinceReferenceDate="456839295.22302198">
                                     <!--2015-06-24 11:48:15 +0000-->
                                 </date>
@@ -74,7 +74,7 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbf-ie-9GA">
-                                <rect key="frame" x="150" y="128" width="75" height="53"/>
+                                <rect key="frame" x="113" y="128" width="75" height="53"/>
                                 <color key="backgroundColor" red="0.74095523620000003" green="1" blue="0.72706859199999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-Wf-DFc">
-                                <rect key="frame" x="164" y="189" width="42" height="30"/>
+                                <rect key="frame" x="166" y="194" width="42" height="30"/>
                                 <color key="backgroundColor" red="0.94543087121212122" green="0.81588381686519684" blue="0.53779380387404452" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="clear">
@@ -104,8 +104,14 @@
                                     <segue destination="AWs-lx-VWg" kind="presentation" id="ecE-SF-P9t"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-if-yYr">
+                                <rect key="frame" x="166" y="371" width="30" height="30"/>
+                                <state key="normal" title="設定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn4-a6-oIA">
-                                <rect key="frame" x="135" y="382" width="84" height="89"/>
+                                <rect key="frame" x="187" y="118" width="76" height="74"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                 <state key="normal" title="＋">
                                     <color key="titleColor" red="1" green="0.53116042811016817" blue="0.80149330488485693" alpha="1" colorSpace="calibratedRGB"/>
