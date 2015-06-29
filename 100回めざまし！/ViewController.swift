@@ -10,7 +10,6 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     var audioPlayer : AVAudioPlayer!
     var myButton :UIButton!
     var currentTime :String!
-    var alarmTime :String!
     var number:Int = 0
     @IBOutlet var label:UILabel!
     var now2 :NSDate!
@@ -90,20 +89,22 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         df.dateFormat = "HH:mm"
         var dateStr = df.stringFromDate(sender.date)
         
-        alarmTime = dateStr
         
         println(dateStr)
     
     }
     
     
+    
     //（アラーム時間 - 現在時刻)経つとClap音鳴る
     @IBAction func start (){
-    audioPlayer.play(timeIntervalSinceNow: time)()
+        // アラーム時刻 - 現在時刻
+        var intervalTime = Float(now2.timeIntervalSinceDate(alarmTime))
+        
+        audioPlayer.play(timeIntervalSinceNow: intervalTime)()
         audioPlayer.numberOfLoops = 4
         
-        // アラーム時刻 - 現在時刻
-        var time = Float(now2.timeIntervalSinceDate(alarmTime))
+     
         
         
     //label数が100になるとClap音止まる(アラーム停止）
