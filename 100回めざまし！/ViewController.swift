@@ -100,11 +100,10 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     @IBAction func start (){
         // アラーム時刻 - 現在時刻
         var intervalTime = Float(now2.timeIntervalSinceDate(alarmTime))
-        
-        audioPlayer.play(timeIntervalSinceNow: intervalTime)()
+        Float = NSTimerInterval(Float.Left)
+        audioPlayer.play = NSDate(TimeintervalSinceNow: Float)()
         audioPlayer.numberOfLoops = 4
         
-     
         
         
     //label数が100になるとClap音止まる(アラーム停止）

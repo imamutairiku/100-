@@ -104,12 +104,6 @@
                                     <segue destination="AWs-lx-VWg" kind="presentation" id="ecE-SF-P9t"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-if-yYr">
-                                <rect key="frame" x="166" y="371" width="30" height="30"/>
-                                <state key="normal" title="設定">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn4-a6-oIA">
                                 <rect key="frame" x="187" y="118" width="76" height="74"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="96"/>
@@ -120,6 +114,12 @@
                                 <connections>
                                     <action selector="plus" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jqX-3h-A9B"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-if-yYr">
+                                <rect key="frame" x="172" y="392" width="30" height="30"/>
+                                <state key="normal" title="設定">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96628973782940353" blue="0.58964944707544065" alpha="1" colorSpace="calibratedRGB"/>
