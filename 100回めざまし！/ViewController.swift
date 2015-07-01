@@ -6,14 +6,21 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController,AVAudioPlayerDelegate {
+class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // UIPickerView.
+    private var myUIPicker: UIPickerView!
+    
+    // 表示する値の配列.
+    private let myValues: NSArray = ["１時間","２時間","３時間","４時間", "５時間", "６時間", "７時間", "８時間", "９時間", "１０時間", "１１時間", "１２時間"]
+    
     var audioPlayer : AVAudioPlayer!
     var myButton :UIButton!
-    var currentTime :String!
+    //var currentTime :String!
     var number:Int = 0
     @IBOutlet var label:UILabel!
-    var now2 :NSDate!
-    var alarmTime :NSDate!
+    //var now2 :NSDate!
+    //var alarmTime :NSDate!
     
     
     override func viewDidLoad() {
@@ -26,9 +33,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
                 categories: nil)
         )
         
-        
-        //アラーム開始ボタン
-        
+        //アラームの開始ボタン
         
         //再生する音源のURLを生成.!
         let soundFilePath : NSString = NSBundle.mainBundle().pathForResource("clap", ofType: "wav")!
@@ -39,20 +44,24 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         
         //AVAudioPlayerのデリゲートをセット.
         audioPlayer.delegate = self
-    
         
         
-        //現在時刻
-        //let now = NSDate()
+        myUIPicker = UIPickerView()
         
-        //let formatter = NSDateFormatter()
-        //formatter.dateFormat = "HH:mm"
+        // サイズを指定する.
+        myUIPicker.frame = CGRectMake(0,140,self.view.bounds.width, 180.0)
         
-        //let string = formatter.stringFromDate(now)
+        // Delegateを設定する.
+        myUIPicker.delegate = self
         
-        //println(string)
+        // DataSourceを設定する.
+        myUIPicker.dataSource = self
         
-        }
+        // Viewに追加する.
+        self.view.addSubview(myUIPicker)
+        
+        
+    }
     
     //カウント機能
     @IBAction func plus(){
@@ -67,46 +76,47 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     }
     
     
-    override func viewWillAppear(animated: Bool) {
-        //現在の時刻を取得する
-        var now = NSDate()
-        //時分秒のフォーマッターを作る
-        var df = NSDateFormatter()
-        //時刻をフォーマッターの書式で文字に変換
-        df.dateFormat = "HH:mm"
-        var datestr = df.stringFromDate(now)
-        
-        //出力する
-        now2 = now
-        println(datestr)
-        
-        currentTime = datestr
+    /*
+    pickerに表示する列数を返すデータソースメソッド.
+    (実装必須)
+    */
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    //アラーム時間の設定
-    func changeDatePicker(sender: UIDatePicker) {
-        let df = NSDateFormatter()
-        df.dateFormat = "HH:mm"
-        var dateStr = df.stringFromDate(sender.date)
-        
-        
-        println(dateStr)
+    /*
+    pickerに表示する行数を返すデータソースメソッド.
+    (実装必須)
+    */
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return myValues.count
+    }
     
+    /*
+    pickerに表示する値を返すデリゲートメソッド.
+    */
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+        return myValues[row] as! String
+    }
+    
+    /*
+    pickerが選択された際に呼ばれるデリゲートメソッド.
+    */
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        println("row: \(row)")
+        println("value: \(myValues[row])")
     }
     
     
     
-    //（アラーム時間 - 現在時刻)経つとClap音鳴る
+    //Start押すと、音が鳴る（x時間後に）
     @IBAction func start (){
-        // アラーム時刻 - 現在時刻
-        var intervalTime = Float(now2.timeIntervalSinceDate(alarmTime))
-        Float = NSTimerInterval(Float.Left)
-        audioPlayer.play = NSDate(TimeintervalSinceNow: Float)()
+        audioPlayer.play()
+        //audioPlayer.play (timeintervalSinceNow: )()
         audioPlayer.numberOfLoops = 4
         
         
-        
-    //label数が100になるとClap音止まる(アラーム停止）
+        //label数が100になるとClap音止まる(アラーム停止）
         if label.text == String(3){
             
             audioPlayer.stop()
@@ -115,11 +125,11 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
     }
     
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
 }
+
 
 
