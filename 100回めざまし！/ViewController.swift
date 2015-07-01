@@ -49,7 +49,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
         myUIPicker = UIPickerView()
         
         // サイズを指定する.
-        myUIPicker.frame = CGRectMake(0,140,self.view.bounds.width, 180.0)
+        myUIPicker.frame = CGRectMake(0,175,self.view.bounds.width, 180.0)
         
         // Delegateを設定する.
         myUIPicker.delegate = self
@@ -112,7 +112,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
     //Start押すと、音が鳴る（x時間後に）
     @IBAction func start (){
         audioPlayer.play()
-        //audioPlayer.play (timeintervalSinceNow: )()
+        let row: Int
+        audioPlayer.play (timeintervalSinceNow: row*60)()
         audioPlayer.numberOfLoops = 4
         
         

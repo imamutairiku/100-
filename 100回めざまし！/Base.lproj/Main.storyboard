@@ -64,19 +64,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hhE-YH-vFa">
-                                <rect key="frame" x="77" y="239" width="221" height="103"/>
-                                <date key="date" timeIntervalSinceReferenceDate="456839295.22302198">
-                                    <!--2015-06-24 11:48:15 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="changeDatePicker:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Uv2-gI-Qiq"/>
-                                </connections>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbf-ie-9GA">
-                                <rect key="frame" x="113" y="128" width="75" height="53"/>
+                                <rect key="frame" x="72" y="140" width="102" height="88"/>
                                 <color key="backgroundColor" red="0.74095523620000003" green="1" blue="0.72706859199999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100回めざまし〜！" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNu-CX-TeI">
@@ -84,19 +75,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-Wf-DFc">
-                                <rect key="frame" x="166" y="194" width="42" height="30"/>
-                                <color key="backgroundColor" red="0.94543087121212122" green="0.81588381686519684" blue="0.53779380387404452" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="clear">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clear" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xEg-7g-OHq"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-Ko-Rp8">
-                                <rect key="frame" x="46" y="140" width="30" height="30"/>
+                                <rect key="frame" x="16" y="503" width="30" height="30"/>
                                 <state key="normal" title="戻る">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -105,7 +85,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn4-a6-oIA">
-                                <rect key="frame" x="187" y="118" width="76" height="74"/>
+                                <rect key="frame" x="169" y="129" width="73" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                 <state key="normal" title="＋">
                                     <color key="titleColor" red="1" green="0.53116042811016817" blue="0.80149330488485693" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,10 +96,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-if-yYr">
-                                <rect key="frame" x="172" y="392" width="30" height="30"/>
-                                <state key="normal" title="設定">
+                                <rect key="frame" x="154" y="448" width="63" height="40"/>
+                                <color key="backgroundColor" red="0.94543087120000002" green="0.8158838169" blue="0.53779380389999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="設定OK!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="start" destination="vXZ-lx-hvc" eventType="touchUpInside" id="no2-xq-GpZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-Wf-DFc">
+                                <rect key="frame" x="194" y="193" width="42" height="35"/>
+                                <color key="backgroundColor" red="0.94543087121212122" green="0.81588381686519684" blue="0.53779380387404452" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="→０">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clear" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xEg-7g-OHq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96628973782940353" blue="0.58964944707544065" alpha="1" colorSpace="calibratedRGB"/>
