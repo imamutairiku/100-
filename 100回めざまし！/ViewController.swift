@@ -6,7 +6,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // UIPickerView.
     private var myUIPicker: UIPickerView!
@@ -21,7 +21,10 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
     @IBOutlet var label:UILabel!
     //var now2 :NSDate!
     //var alarmTime :NSDate!
+    
     var alarmCount: Int = 0
+    let myNotification: UILocalNotification!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +63,18 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
         // Viewに追加する.
         self.view.addSubview(myUIPicker)
         
+        
+        let myNotificationFireButton: UIButton = UIButton(frame: CGRectMake(0,0,20,10))
+        myNotificationFireButton.backgroundColor = UIColor.blueColor()
+        myNotificationFireButton.layer.masksToBounds = true
+        myNotificationFireButton.setTitle("おはよう", forState: .Normal)
+        myNotificationFireButton.layer.cornerRadius = 20.0
+        myNotificationFireButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:400)
+        myNotificationFireButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
+        myNotificationFireButton.tag = 2
+        
+        // ViewにButtonを追加する.
+        view.addSubview(myNotificationFireButton)
         
     }
     
@@ -107,30 +122,63 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
         println("value: \(myValues[row])")
     }
     
+    /*
+    ボタンイベント
+    */
+    internal func onClickMyButton(sender: UIButton){
+        println("設定OK!")
+        if sender.tag == 2 {
+            showNotificationFire()
+        }
+    }
     
-    
-    //Start押すと、音が鳴る（x時間後に）
-    @IBAction func start (){
-        audioPlayer.play()
-        alarmCount = row*60*60
-        audioPlayer.playDate = NSDate (timeIntervalSinceNow: alarmCount)
-        audioPlayer.numberOfLoops = 4
+    /*
+    Show Notification (alarmCount sec後に発火)
+    */
+    private func showNotificationFire(){
         
+        // Notificationの生成する.
+        let myNotification: UILocalNotification = UILocalNotification()
+        
+        // メッセージを代入する.
+        myNotification.alertBody = "おはよう！"
+        
+        // 再生サウンドを設定する.
+        myNotification.soundName = UILocalNotificationDefaultSoundName
+        
+        // Timezoneを設定する.
+        myNotification.timeZone = NSTimeZone.defaultTimeZone()
+        
+        // alarmCount 秒後に設定する.
+        alarmCount = row*60*60
+        myNotification.fireDate = NSDate(timeIntervalSinceNow: alarmCount)
+        
+        // Notificationを表示する.
+        UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
+        
+        
+        //Notification通知来た時に、Clap鳴る
+        
+        if myNotification.fire {
+        audioPlayer.play()
+        audioPlayer.numberOfLoops = 4
         
         //label数が100になるとClap音止まる(アラーム停止）
         if label.text == String(3){
             
             audioPlayer.stop()
             audioPlayer.currentTime = 0
+            }
         }
     }
     
+    //Start押すと、通知くる（x時間後に）
+    //@IBAction func start ()
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
 }
 
+}
 
 
