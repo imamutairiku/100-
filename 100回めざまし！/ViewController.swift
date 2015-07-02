@@ -150,7 +150,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         myNotification.timeZone = NSTimeZone.defaultTimeZone()
         
         // alarmCount 秒後に設定する.
-        alarmCount = row*60*60
+        var row = 1
+        alarmCount = 1*60*60
         myNotification.fireDate = NSDate(timeIntervalSinceNow: alarmCount)
         
         // Notificationを表示する.
