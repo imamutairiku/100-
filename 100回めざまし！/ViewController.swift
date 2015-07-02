@@ -21,7 +21,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
     @IBOutlet var label:UILabel!
     //var now2 :NSDate!
     //var alarmTime :NSDate!
-    
+    var alarmCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,8 +112,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, UIPickerViewDelega
     //Start押すと、音が鳴る（x時間後に）
     @IBAction func start (){
         audioPlayer.play()
-        let row: Int
-        audioPlayer.play (timeintervalSinceNow: row*60)()
+        alarmCount = row*60*60
+        audioPlayer.playDate = NSDate (timeIntervalSinceNow: alarmCount)
         audioPlayer.numberOfLoops = 4
         
         
