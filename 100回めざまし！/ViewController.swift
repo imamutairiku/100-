@@ -114,7 +114,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     */
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
         return myValues[row] as! String
-        var rowValue = row + 1
     }
     
     /*
@@ -123,6 +122,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         println("row: \(row)")
         println("value: \(myValues[row])")
+        
+        var rowValue = row + 1
     }
     
     /*
