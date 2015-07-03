@@ -24,9 +24,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     
     //var alarmCount: Int = 0
     var alarmCount: NSTimeInterval!
-    var rowValue: NSTimeInterval!
-
-    var rowValue: Int = 0
+    
+    var rowValue:Int = 0
     
     
     override func viewDidLoad() {
@@ -123,8 +122,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         println("row: \(row)")
         println("value: \(myValues[row])")
-        var rowValue = row + 1
         
+        var rowValue = row + 1
         
     }
     
@@ -156,7 +155,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         myNotification.timeZone = NSTimeZone.defaultTimeZone()
         
         // alarmCount 秒後に設定する.
-        alarmCount = rowValue*60*60
+        alarmCount = NSTimeInterval(rowValue*6)
         myNotification.fireDate = NSDate(timeIntervalSinceNow: alarmCount)
         
         // Notificationを表示する.

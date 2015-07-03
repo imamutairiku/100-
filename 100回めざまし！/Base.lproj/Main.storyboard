@@ -96,14 +96,6 @@
                                     <action selector="clear" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xEg-7g-OHq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hou-UL-Ncq">
-                                <rect key="frame" x="146" y="503" width="72" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="設定OK">
-                                    <color key="titleColor" red="1" green="0.28453445205558403" blue="0.32795171430517711" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn4-a6-oIA">
                                 <rect key="frame" x="97" y="413" width="85" height="83"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
