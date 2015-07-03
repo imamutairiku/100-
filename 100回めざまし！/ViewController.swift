@@ -53,7 +53,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         myUIPicker = UIPickerView()
         
         // サイズを指定する.
-        myUIPicker.frame = CGRectMake(0,175,self.view.bounds.width, 180.0)
+        myUIPicker.frame = CGRectMake(0,165,self.view.bounds.width, 200.0)
         
         // Delegateを設定する.
         myUIPicker.delegate = self
@@ -70,7 +70,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         myNotificationFireButton.layer.masksToBounds = true
         myNotificationFireButton.setTitle("おはよう", forState: .Normal)
         myNotificationFireButton.layer.cornerRadius = 20.0
-        myNotificationFireButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:400)
+        myNotificationFireButton.layer.position = CGPoint(x: self.view.bounds.width/2, y:370)
         myNotificationFireButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         myNotificationFireButton.tag = 2
         

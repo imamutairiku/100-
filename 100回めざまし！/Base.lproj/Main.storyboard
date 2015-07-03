@@ -65,13 +65,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbf-ie-9GA">
-                                <rect key="frame" x="72" y="140" width="102" height="88"/>
+                                <rect key="frame" x="132" y="86" width="102" height="88"/>
                                 <color key="backgroundColor" red="0.74095523620000003" green="1" blue="0.72706859199999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100回めざまし〜！" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNu-CX-TeI">
-                                <rect key="frame" x="24" y="67" width="326" height="30"/>
+                                <rect key="frame" x="24" y="42" width="326" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -84,36 +84,27 @@
                                     <segue destination="AWs-lx-VWg" kind="presentation" id="ecE-SF-P9t"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-Wf-DFc">
+                                <rect key="frame" x="198" y="423" width="63" height="64"/>
+                                <color key="backgroundColor" red="0.88756231516091133" green="1" blue="0.55145027161230686" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="→０">
+                                    <color key="titleColor" red="1" green="0.53116042809999997" blue="0.80149330490000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clear" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xEg-7g-OHq"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn4-a6-oIA">
-                                <rect key="frame" x="169" y="129" width="73" height="63"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                                <rect key="frame" x="97" y="413" width="85" height="83"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="＋">
                                     <color key="titleColor" red="1" green="0.53116042811016817" blue="0.80149330488485693" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="plus" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jqX-3h-A9B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-if-yYr">
-                                <rect key="frame" x="154" y="448" width="63" height="40"/>
-                                <color key="backgroundColor" red="0.94543087120000002" green="0.8158838169" blue="0.53779380389999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="設定OK!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="start" destination="vXZ-lx-hvc" eventType="touchUpInside" id="no2-xq-GpZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-Wf-DFc">
-                                <rect key="frame" x="194" y="193" width="42" height="35"/>
-                                <color key="backgroundColor" red="0.94543087121212122" green="0.81588381686519684" blue="0.53779380387404452" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="→０">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clear" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xEg-7g-OHq"/>
                                 </connections>
                             </button>
                         </subviews>
