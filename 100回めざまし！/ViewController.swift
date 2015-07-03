@@ -23,7 +23,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     //var alarmTime :NSDate!
     
     //var alarmCount: Int = 0
-    let myNotification: UILocalNotification!
     var alarmCount: NSTimeInterval!
     var rowValue: NSTimeInterval!
     
@@ -65,9 +64,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         // Viewに追加する.
         self.view.addSubview(myUIPicker)
         
-        
-        let myNotificationFireButton: UIButton = UIButton(frame: CGRectMake(0,0,20,10))
-        myNotificationFireButton.backgroundColor = UIColor.blueColor()
+        //Notification ボタン
+        let myNotificationFireButton: UIButton = UIButton(frame: CGRectMake(0, 0,100 ,40))
+        myNotificationFireButton.backgroundColor = UIColor.orangeColor()
         myNotificationFireButton.layer.masksToBounds = true
         myNotificationFireButton.setTitle("おはよう", forState: .Normal)
         myNotificationFireButton.layer.cornerRadius = 20.0
@@ -147,7 +146,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         // メッセージを代入する.
         myNotification.alertBody = "おはよう！"
         
-        
         // 再生サウンドを設定する.
         myNotification.soundName = UILocalNotificationDefaultSoundName
         
@@ -160,7 +158,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         
         // Notificationを表示する.
         UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
-        
         
         //Notification通知来た時に、Clap鳴る
         if (myNotification.alertAction != nil){
@@ -175,9 +172,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
             }
         }
     }
-    
-    //Start押すと、通知くる（x時間後に）
-    //@IBAction func start ()
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
