@@ -25,7 +25,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     //var alarmCount: Int = 0
     let myNotification: UILocalNotification!
     var alarmCount: NSTimeInterval!
-
+    var rowValue: NSTimeInterval!
     
     
     override func viewDidLoad() {
