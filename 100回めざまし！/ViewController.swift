@@ -158,9 +158,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
         
         
-        //Notification通知来た時に、Clap鳴る
         
-        if myNotification.fire {
+        //Notification通知来た時に、Clap鳴る
+        if myNotification.alertAction {
         audioPlayer.play()
         audioPlayer.numberOfLoops = 4
         
