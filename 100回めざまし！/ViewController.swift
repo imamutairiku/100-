@@ -25,6 +25,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
     //var alarmCount: Int = 0
     var alarmCount: NSTimeInterval!
     var rowValue: NSTimeInterval!
+
+    var rowValue: Int = 0
     
     
     override func viewDidLoad() {
@@ -122,8 +124,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         println("row: \(row)")
         println("value: \(myValues[row])")
         var rowValue = row + 1
-        var rowValue: Int!
-        var rowValue: Int = 0
+        
         
     }
     
