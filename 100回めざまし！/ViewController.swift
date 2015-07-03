@@ -65,7 +65,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         self.view.addSubview(myUIPicker)
         
         //Notification ボタン
-        let myNotificationFireButton: UIButton = UIButton(frame: CGRectMake(0, 0,100 ,40))
+        let myNotificationFireButton: UIButton = UIButton(frame: CGRectMake(0, 0,100, 60))
         myNotificationFireButton.backgroundColor = UIColor.orangeColor()
         myNotificationFireButton.layer.masksToBounds = true
         myNotificationFireButton.setTitle("おはよう", forState: .Normal)
