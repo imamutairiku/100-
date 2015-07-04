@@ -123,8 +123,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         println("row: \(row)")
         println("value: \(myValues[row])")
         
-        var rowValue = row + 1
-        
+        let rowValue = row + 1
+        println("rowValue",rowValue)
     }
     
     /*
@@ -162,7 +162,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
         
         //Notification通知来た時に、Clap鳴る
-        if (myNotification.alertAction != nil){
+        if ((myNotification.accessibilityValue) != nil){
         audioPlayer.play()
         audioPlayer.numberOfLoops = 4
         
