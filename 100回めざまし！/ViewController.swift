@@ -54,7 +54,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDeleg
         myUIPicker = UIPickerView()
         
         // サイズを指定する.
-        myUIPicker.frame = CGRectMake(0,165,self.view.bounds.width, 200.0)
+        myUIPicker.frame = CGRectMake(0,165,self.view.bounds.width, 500.0)
         
         // Delegateを設定する.
         myUIPicker.delegate = self
